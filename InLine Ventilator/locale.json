@@ -1,0 +1,22 @@
+{
+    "translations": {
+        "de": {
+            "State": "Status",
+            "Oscillating": "Schwingen",
+            "Nightmode": "Nachtmodus",
+            "Speed": "Geschwindigkeit",
+            "Timer": "Timer",
+            "Device State": "Gerätestatus",
+            "Off": "Aus",
+            "1 Hour": "1 Stunde",
+            "2 Hour": "2 Stunde",
+            "3 Hour": "3 Stunde",
+            "4 Hour": "4 Stunde",
+            "MQTT Topic": "MQTT Topic",
+            "Full Topic": "Full Topic",
+            "InLine Desk Fan": "InLIne Tischventilator",
+            "Inline Pedestal fan": "InLine Standventilator",
+            "Retain (MQTT)":"Retain (MQTT)"
+        }
+    }
+}

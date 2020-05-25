@@ -1,0 +1,14 @@
+{
+    "translations": {
+        "de": {
+            "State 1": "Status 1",
+            "State 2": "Status 2",
+            "State 3": "Status 3",
+            "State 4 (USB)": "Status 4 (USB)",
+            "Device State": "Gerätestatus",
+            "MQTT Topic": "MQTT Topic",
+            "Full Topic": "Full Topic",
+            "Retain (MQTT)":"Retain (MQTT)"
+        }
+    }
+}

@@ -1,0 +1,29 @@
+{
+    "translations": {
+        "de": {
+            "State": "Status",
+            "ApparentPower": "Scheinleistung",
+            "Current": "Strom",
+            "Factor": "Faktor",
+            "Power": "Leistung",
+            "ReactivePower": "Blindleistung",
+            "Today": "Heute",
+            "Total": "Gesamt",
+            "Yesterday": "Gestern",
+            "Voltage": "Stromspannung",
+            "LED State": "LED Status",
+            "LED Color": "LED Farbe",
+            "LED Brightness": "LED Helligkeit",
+            "LED Fade": "LED Fade",
+            "LED Effect": "LED Effekt",
+            "LED Speed": "LED Geschwindigkeit",
+            "Device State": "Gerätestatus",
+            "InLine RGB Plug": "InLine RGB Steckdose",
+            "InLine Plug": "InLine Steckdose",
+            "Device Type": "Gerätetyp",
+            "MQTT Topic": "MQTT Topic",
+            "Full Topic": "Full Topic",
+            "Retain (MQTT)":"Retain (MQTT)"
+        }
+    }
+}

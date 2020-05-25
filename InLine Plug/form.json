@@ -1,0 +1,15 @@
+{
+    "elements": [
+        { "type": "ValidationTextBox", "name": "Topic", "caption": "MQTT Topic" },
+        { "type": "ValidationTextBox", "name": "FullTopic", "caption": "Full Topic" },
+        { "type": "CheckBox", "name": "MessageRetain", "caption": "Retain (MQTT)" },
+        { "type": "Select", "name": "DeviceType", "caption": "Device Type",
+        "options": [
+            { "label": "InLine Plug", "value": "Plug" },
+            { "label": "InLine RGB Plug", "value": "RGB Plug" }
+        ]
+    }
+    ],
+    "actions": [],
+    "status": []
+}

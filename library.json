@@ -1,0 +1,12 @@
+{
+    "id": "{7E5BA322-82CF-DBA3-ABB1-1E901EDD049A}",
+    "name": "InLine",
+    "author": "Kai Schnittcher",
+    "url": "https://deinsmarthome.info",
+    "compatibility": {
+        "version": "5.0"
+    },
+    "version": "1.0",
+    "build": 0,
+    "date": 0
+}

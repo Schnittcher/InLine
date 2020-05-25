@@ -1,0 +1,18 @@
+{
+    "translations": {
+        "de": {
+            "State": "Status",
+            "Color": "Farbe",
+            "Brightness": "Helligkeit",
+            "Fade": "Fade",
+            "Effect": "Effekt",
+            "Speed": "Geschwindigkeit",
+            "White": "Weiß",
+            "Color Temperature": "Farbtemperatur",
+            "Device State": "Gerätestatus",
+            "MQTT Topic": "MQTT Topic",
+            "Full Topic": "Full Topic",
+            "Retain (MQTT)":"Retain (MQTT)"
+        }
+    }
+}

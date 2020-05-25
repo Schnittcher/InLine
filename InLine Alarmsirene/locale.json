@@ -1,0 +1,13 @@
+{
+    "translations": {
+        "de": {
+            "Alarm": "Alarm",
+            "Playtime of Alarm": "Spielzeit des Alarms",
+            "Sound": "Klingelton",
+            "Device State": "Gerätestatus",
+            "MQTT Topic": "MQTT Topic",
+            "Full Topic": "Full Topic",
+            "Retain (MQTT)":"Retain (MQTT)"
+        }
+    }
+}
