@@ -27,7 +27,6 @@ Dieses IP-Symcon Modul integriert die SmartHome Geräte von InLIne in IP-Symcon 
 * [InLine Steckdosenleiste](InLine%20Steckdosenleiste/README.md)
 * [InLine Aroma Diffusor](InLine%20Aroma%20Diffusor.md)
 * [InLine Ventilator](InLine%20Ventilator/README.md)
-* [Netatmo Energy Splitter](Netatmo%20Energy%20Splitter/README.md)
 
 ## 3. Installation
 Installation über den IP-Symcon Module Store.
