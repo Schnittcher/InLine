@@ -128,7 +128,7 @@ require_once __DIR__ . '/../libs/MQTTHelper.php';
                     case 'Brightness':
                         $command = 'Dimmer';
                         if (!$this->GetValue('State')) {
-                            $this->MQTTCommand($command, '1');
+                            $this->MQTTCommand('POWER', 'ON');
                         }
                         $msg = strval($Value);
                         $this->MQTTCommand($command, $msg);
