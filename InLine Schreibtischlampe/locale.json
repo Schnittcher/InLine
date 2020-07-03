@@ -1,0 +1,16 @@
+{
+    "translations": {
+        "de": {
+            "State": "Status",
+            "Brightness": "Helligkeit",
+            "Color Mode": "Farbmodus",
+            "Device State": "Gerätestatus",
+            "MQTT Topic": "MQTT Topic",
+            "Full Topic": "Full Topic",
+            "Retain (MQTT)":"Retain (MQTT)",
+            "Default": "Standard",
+            "Sepia": "Sepia",
+            "White": "Weiß"
+        }
+    }
+}
