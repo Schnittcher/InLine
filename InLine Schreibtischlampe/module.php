@@ -35,7 +35,7 @@ require_once __DIR__ . '/../libs/MQTTHelper.php';
 
                 $this->RegisterVariableBoolean('State', $this->Translate('State'), '~Switch', 0);
                 $this->RegisterVariableInteger('Brightness', $this->Translate('Brightness'), '~Intensity.100', 2);
-                $this->RegisterVariableBoolean('Colormode', $this->Translate('Colormode'), 'InLine.ColorMode', 3);
+                $this->RegisterVariableInteger('Colormode', $this->Translate('Colormode'), 'InLine.ColorMode', 3);
                 $this->RegisterVariableBoolean('DeviceStatus', $this->Translate('Device State'), 'InLine.DeviceStatus', 8);
 
                 $this->EnableAction('State');
