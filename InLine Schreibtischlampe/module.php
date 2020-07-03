@@ -153,9 +153,9 @@ require_once __DIR__ . '/../libs/MQTTHelper.php';
                 //Speed Profile
                 //Scheme Profile
                 $this->RegisterProfileIntegerEx('InLine.ColorMode', 'Database', '', '', [
-                    [0, $this->Translate('Default'),  '', -1],
-                    [1, $this->Translate('Sepia'),  '', -1],
-                    [2, $this->Translate('White'), '', -1]
+                    [1, $this->Translate('Default'),  '', -1],
+                    [2, $this->Translate('Sepia'),  '', -1],
+                    [3, $this->Translate('White'), '', -1]
                 ]);
                 //Online / Offline Profile
                 $this->RegisterProfileBooleanEx('InLine.DeviceStatus', 'Network', '', '', [
