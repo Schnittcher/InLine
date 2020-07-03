@@ -18,7 +18,6 @@ require_once __DIR__ . '/../libs/MQTTHelper.php';
                 $this->RegisterPropertyString('Topic', '');
                 $this->RegisterPropertyString('FullTopic', '%prefix%/%topic%');
                 $this->RegisterPropertyBoolean('MessageRetain', false);
-                $this->RegisterPropertyString('DeviceType', 'Plug');
 
                 $this->createVariabenProfiles();
             }
