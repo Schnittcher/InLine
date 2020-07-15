@@ -94,6 +94,7 @@ require_once __DIR__ . '/../libs/MQTTHelper.php';
                         if (property_exists($Payload, 'Color')) {
                             $rgb = explode(',', $Payload->Color);
                             $color = sprintf('#%02x%02x%02x', $rgb[0], $rgb[1], $rgb[2]);
+                            $color = ltrim($color, '#');
                             $this->SetValue('Color', hexdec($color));
                         }
                     }
