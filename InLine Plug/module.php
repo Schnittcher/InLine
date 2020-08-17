@@ -125,6 +125,7 @@ require_once __DIR__ . '/../libs/MQTTHelper.php';
                         $this->SendDebug('Receive STATE: Color', $Payload->Color, 0);
                         $rgb = explode(',', $Payload->Color);
                         $color = sprintf('#%02x%02x%02x', $rgb[0], $rgb[1], $rgb[2]);
+                        $color = ltrim($color, '#');
                         $this->SetValue('LEDColor', hexdec($color));
                     }
                 }
