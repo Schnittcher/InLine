@@ -3,11 +3,13 @@
 declare(strict_types=1);
 require_once __DIR__ . '/../libs/VariableProfileHelper.php';
 require_once __DIR__ . '/../libs/MQTTHelper.php';
+require_once __DIR__ . '/../libs/BufferHelper.php';
 
     class InLinePlug extends IPSModule
     {
         use VariableProfileHelper;
         use MQTTHelper;
+        use BufferHelper;
 
         public function Create()
         {
@@ -33,6 +35,7 @@ require_once __DIR__ . '/../libs/MQTTHelper.php';
         {
             //Never delete this line!
             parent::ApplyChanges();
+            $this->BufferResponse = '';
 
             $this->RegisterVariableBoolean('State', $this->Translate('State'), '~Switch', 0);
 
@@ -164,6 +167,7 @@ require_once __DIR__ . '/../libs/MQTTHelper.php';
                     }
                 }
                 if (fnmatch('*RESULT', $Buffer->Topic)) {
+                    $this->BufferResponse = $Buffer->Payload;
                     $Payload = json_decode($Buffer->Payload);
                     if (property_exists($Payload, 'Speed')) {
                         $this->SetValue('LEDSpeed', $Payload->Speed);

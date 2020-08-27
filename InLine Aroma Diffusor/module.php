@@ -3,11 +3,13 @@
 declare(strict_types=1);
 require_once __DIR__ . '/../libs/VariableProfileHelper.php';
 require_once __DIR__ . '/../libs/MQTTHelper.php';
+require_once __DIR__ . '/../libs/BufferHelper.php';
 
     class InLineAromaDiffusor extends IPSModule
     {
         use VariableProfileHelper;
         use MQTTHelper;
+        use BufferHelper;
 
         public function Create()
         {
@@ -78,6 +80,9 @@ require_once __DIR__ . '/../libs/MQTTHelper.php';
                     } else {
                         SetValue($this->GetIDForIdent('DeviceStatus'), false);
                     }
+                }
+                if (fnmatch('*RESULT', $Buffer->Topic)) {
+                    $this->BufferResponse = $Buffer->Payload;
                 }
                 if (fnmatch('*level*', $Buffer->Payload)) {
                     if (property_exists($Payload, 'level')) {

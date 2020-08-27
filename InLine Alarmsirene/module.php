@@ -3,11 +3,13 @@
 declare(strict_types=1);
 require_once __DIR__ . '/../libs/VariableProfileHelper.php';
 require_once __DIR__ . '/../libs/MQTTHelper.php';
+require_once __DIR__ . '/../libs/BufferHelper.php';
 
 class InLineAlarmsirene extends IPSModule
 {
     use VariableProfileHelper;
     use MQTTHelper;
+    use BufferHelper;
 
     public function Create()
     {
@@ -74,6 +76,7 @@ class InLineAlarmsirene extends IPSModule
                 }
             }
             if (fnmatch('*RESULT', $Buffer->Topic)) {
+                $this->BufferResponse = $Buffer->Payload;
                 $Payload = json_decode($Buffer->Payload);
                 if (property_exists($Payload, 'POWER')) {
                     $this->SetValue('Alarm', $this->mappingOnOffValue($Payload->POWER));

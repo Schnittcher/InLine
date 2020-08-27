@@ -3,11 +3,13 @@
 declare(strict_types=1);
 require_once __DIR__ . '/../libs/VariableProfileHelper.php';
 require_once __DIR__ . '/../libs/MQTTHelper.php';
+require_once __DIR__ . '/../libs/BufferHelper.php';
 
 class InLineSteckdosenleiste extends IPSModule
 {
     use VariableProfileHelper;
     use MQTTHelper;
+    use BufferHelper;
 
     public function Create()
     {
@@ -75,6 +77,7 @@ class InLineSteckdosenleiste extends IPSModule
                 }
             }
             if (fnmatch('*RESULT', $Buffer->Topic)) {
+                $this->BufferResponse = $Buffer->Payload;
                 $Payload = json_decode($Buffer->Payload);
                 if (property_exists($Payload, 'POWER1')) {
                     $this->SetValue('State1', $this->mappingOnOffValue($Payload->POWER1));

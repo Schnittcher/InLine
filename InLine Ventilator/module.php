@@ -3,11 +3,13 @@
 declare(strict_types=1);
 require_once __DIR__ . '/../libs/VariableProfileHelper.php';
 require_once __DIR__ . '/../libs/MQTTHelper.php';
+require_once __DIR__ . '/../libs/BufferHelper.php';
 
 class InLineVentilator extends IPSModule
 {
     use VariableProfileHelper;
     use MQTTHelper;
+    use BufferHelper;
 
     public function Create()
     {
@@ -79,6 +81,9 @@ class InLineVentilator extends IPSModule
                 } else {
                     SetValue($this->GetIDForIdent('DeviceStatus'), false);
                 }
+            }
+            if (fnmatch('*RESULT', $Buffer->Topic)) {
+                $this->BufferResponse = $Buffer->Payload;
             }
             if (fnmatch('*POWER*', $Buffer->Topic)) {
                 if (fnmatch('*POWER1', $Buffer->Topic)) {
