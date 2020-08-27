@@ -59,6 +59,28 @@ function pcre_fnmatch($pattern, $string, $flags = 0)
 
 trait MQTTHelper
 {
+    public function sendMQTTCommand(string $command, string $payload)
+    {
+        $retain = $this->ReadPropertyBoolean('MessageRetain');
+        if ($retain) {
+            $retain = true;
+        } else {
+            $retain = false;
+        }
+
+        $this->MQTTCommand($command, $payload, $retain);
+        $this->BufferResponse = '';
+        $result = false;
+        for ($x = 0; $x < 500; $x++) {
+            if ($this->BufferResponse != '') {
+                $this->SendDebug('sendMQTTCommand Response', $this->BufferResponse, 0);
+                $result = $this->BufferResponse;
+                break;
+            }
+            IPS_Sleep(10);
+        }
+        return $result;
+    }
     protected function MQTTCommand($command, $Payload, $retain = 0)
     {
         $retain = $this->ReadPropertyBoolean('MessageRetain');
@@ -130,28 +152,5 @@ trait MQTTHelper
         $topic = implode('\/', $SetCommandArr);
 
         return $topic;
-    }
-
-    public function sendMQTTCommand(string $command, string $payload)
-    {
-        $retain = $this->ReadPropertyBoolean('MessageRetain');
-        if ($retain) {
-            $retain = true;
-        } else {
-            $retain = false;
-        }
-
-        $this->MQTTCommand($command, $payload, $retain);
-        $this->BufferResponse = '';
-        $result = false;
-        for ($x = 0; $x < 500; $x++) {
-            if ($this->BufferResponse != '') {
-                $this->SendDebug('sendMQTTCommand Response', $this->BufferResponse, 0);
-                $result = $this->BufferResponse;
-                break;
-            }
-            IPS_Sleep(10);
-        }
-        return $result;
     }
 }
