@@ -110,6 +110,9 @@ require_once __DIR__ . '/../libs/BufferHelper.php';
                         if (property_exists($Payload, 'Dimmer2')) {
                             $this->SetValue('White', $Payload->Dimmer2);
                         }
+                        if (property_exists($Payload, 'CT')) {
+                            $this->SetValue('CT', $Payload->CT);
+                        }
                         if (property_exists($Payload, 'POWER1')) {
                             $this->SetValue('StateRGB', $this->mappingOnOffValue($Payload->POWER1));
                         }
