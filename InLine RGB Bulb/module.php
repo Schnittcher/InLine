@@ -116,6 +116,12 @@ require_once __DIR__ . '/../libs/BufferHelper.php';
                         if (property_exists($Payload, 'POWER1')) {
                             $this->SetValue('StateRGB', $this->mappingOnOffValue($Payload->POWER1));
                         }
+                        if (property_exists($Payload, 'Fade')) {
+                            $this->SetValue('Fade', $this->mappingOnOffValue($Payload->Fade));
+                        }
+                        if (property_exists($Payload, 'Scheme')) {
+                            $this->SetValue('Effect', $Payload->Scheme);
+                        }
                         if (property_exists($Payload, 'POWER2')) {
                             $this->SetValue('StateWhite', $this->mappingOnOffValue($Payload->POWER2));
                         }
