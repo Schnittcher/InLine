@@ -111,10 +111,10 @@ require_once __DIR__ . '/../libs/BufferHelper.php';
                             $this->SetValue('White', $Payload->Dimmer2);
                         }
                         if (property_exists($Payload, 'POWER1')) {
-                            $this->SetValue('StateRGB', $Payload->POWER1);
+                            $this->SetValue('StateRGB', $this->mappingOnOffValue($Payload->POWER1));
                         }
                         if (property_exists($Payload, 'POWER2')) {
-                            $this->SetValue('StateWhite', $Payload->POWER2);
+                            $this->SetValue('StateWhite', $this->mappingOnOffValue($Payload->POWER2));
                         }
                     }
                     if (fnmatch('*RESULT', $Buffer->Topic)) {
@@ -140,6 +140,7 @@ require_once __DIR__ . '/../libs/BufferHelper.php';
                         if (property_exists($Payload, 'Color')) {
                             $rgb = explode(',', $Payload->Color);
                             $color = sprintf('#%02x%02x%02x', $rgb[0], $rgb[1], $rgb[2]);
+                            $color = ltrim($color, '#');
                             $this->SetValue('Color', hexdec($color));
                         }
                         if (property_exists($Payload, 'Fade')) {
