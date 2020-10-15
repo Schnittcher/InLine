@@ -88,10 +88,11 @@ require_once __DIR__ . '/../libs/BufferHelper.php';
                             SetValue($this->GetIDForIdent('DeviceStatus'), false);
                         }
                     }
-                    if (fnmatch('*POWER', $Buffer->Topic)) {
-                        if (fnmatch('*POWER', $Buffer->Topic)) {
-                            $this->SetValue('State', $this->mappingOnOffValue($Buffer->Payload));
-                        }
+                    if (fnmatch('*POWER1', $Buffer->Topic)) {
+                        $this->SetValue('StateRGB', $this->mappingOnOffValue($Buffer->Payload));
+                    }
+                    if (fnmatch('*POWER2', $Buffer->Topic)) {
+                        $this->SetValue('StateWhite', $this->mappingOnOffValue($Buffer->Payload));
                     }
                     if (fnmatch('*STATE', $Buffer->Topic)) {
                         $Payload = json_decode($Buffer->Payload);
