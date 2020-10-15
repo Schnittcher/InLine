@@ -132,26 +132,13 @@ require_once __DIR__ . '/../libs/BufferHelper.php';
                         $this->SetValue('LEDColor', hexdec($color));
                     }
                     if (property_exists($Payload, 'POWER')) {
-                        switch ($this->ReadPropertyString('DeviceType')) {
-                            case 'Plug':
-                                if (fnmatch('*POWER', $Buffer->Topic)) {
-                                    $this->SetValue('State', $this->mappingOnOffValue($Buffer->Payload));
-                                }
-                                break;
-                            case 'RGB Plug':
-                                if (fnmatch('*POWER1', $Buffer->Topic)) {
-                                    $this->SendDebug('RGB POWER1', $Buffer->Payload, 0);
-                                    $this->SetValue('State', $this->mappingOnOffValue($Buffer->Payload));
-                                }
-                                if (fnmatch('*POWER2', $Buffer->Topic)) {
-                                    $this->SendDebug('RGB POWER2', $Buffer->Payload, 0);
-                                    $this->SetValue('LEDState', $this->mappingOnOffValue($Buffer->Payload));
-                                }
-                                break;
-                            default:
-                                $this->LogMessage('Invalid Device Type', KL_ERROR);
-                                break;
-                        }
+                        $this->SetValue('State', $this->mappingOnOffValue($Buffer->Payload));
+                    }
+                    if (property_exists($Payload, 'POWER1')) {
+                        $this->SetValue('State', $this->mappingOnOffValue($Buffer->Payload));
+                    }
+                    if (property_exists($Payload, 'POWER2')) {
+                        $this->SetValue('LEDState', $this->mappingOnOffValue($Buffer->Payload));
                     }
                 }
                 if (fnmatch('*SENSOR*', $Buffer->Topic)) {
