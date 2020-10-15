@@ -120,7 +120,9 @@ require_once __DIR__ . '/../libs/BufferHelper.php';
                     if (fnmatch('*RESULT', $Buffer->Topic)) {
                         $this->BufferResponse = $Buffer->Payload;
                         $Payload = json_decode($Buffer->Payload);
+
                         if (property_exists($Payload, 'POWER1')) {
+                            $this->SendDebug('POWER1', $Payload->POWER1, 0);
                             $this->SetValue('StateRGB', $this->mappingOnOffValue($Payload->POWER1));
                         }
                         if (property_exists($Payload, 'POWER2')) {
