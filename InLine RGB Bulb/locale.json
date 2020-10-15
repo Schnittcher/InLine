@@ -1,7 +1,8 @@
 {
     "translations": {
         "de": {
-            "State": "Status",
+            "State RGB": "Status RGB",
+            "State White": "Status Weiß",
             "Color": "Farbe",
             "Brightness": "Helligkeit",
             "Fade": "Fade",

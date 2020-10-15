@@ -35,7 +35,8 @@ require_once __DIR__ . '/../libs/BufferHelper.php';
                 //Never delete this line!
                 parent::ApplyChanges();
 
-                $this->RegisterVariableBoolean('State', $this->Translate('State'), '~Switch', 0);
+                $this->RegisterVariableBoolean('StateRGB', $this->Translate('State RGB'), '~Switch', 0);
+                $this->RegisterVariableBoolean('StateWhite', $this->Translate('State White'), '~Switch', 0);
                 $this->RegisterVariableInteger('Color', $this->Translate('Color'), '~HexColor', 1);
                 $this->RegisterVariableInteger('Brightness', $this->Translate('Brightness'), '~Intensity.100', 2);
                 $this->RegisterVariableBoolean('Fade', $this->Translate('Fade'), '~Switch', 3);
@@ -45,7 +46,8 @@ require_once __DIR__ . '/../libs/BufferHelper.php';
                 $this->RegisterVariableInteger('CT', $this->Translate('Color Temperature'), 'InLine.CT', 7);
                 $this->RegisterVariableBoolean('DeviceStatus', $this->Translate('Device State'), 'InLine.DeviceStatus', 8);
 
-                $this->EnableAction('State');
+                $this->EnableAction('StateRGB');
+                $this->EnableAction('StateWhite');
                 $this->EnableAction('Color');
                 $this->EnableAction('Fade');
                 $this->EnableAction('Fade');
@@ -136,8 +138,17 @@ require_once __DIR__ . '/../libs/BufferHelper.php';
             public function RequestAction($Ident, $Value)
             {
                 switch ($Ident) {
-                    case 'State':
-                        $command = 'POWER';
+                    case 'StateRGB':
+                        $command = 'POWER1';
+                        if ($Value === false) {
+                            $msg = 'OFF';
+                        } elseif ($Value === true) {
+                            $msg = 'ON';
+                        }
+                        $this->MQTTCommand($command, $msg);
+                        break;
+                    case 'StateWhite':
+                        $command = 'POWER2';
                         if ($Value === false) {
                             $msg = 'OFF';
                         } elseif ($Value === true) {

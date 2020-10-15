@@ -40,7 +40,8 @@ Die Statusvariablen/Kategorien werden automatisch angelegt. Das Löschen einzeln
 
 Name   | Typ     | Beschreibung
 ------ | ------- | ------------
-Status|Integer| Zeigt den Status der RGB Lampe an und kann diesen verändern.
+Status RGB|Boolean| Schaltet den RGB Modus ein bzw. aus
+Status Weiß|Boolean| Schaltet den Weiß Modus ein bzw. aus
 Fade|Boolean| Zeigt den Fade Status der LED Beleuchtung an und kann diesen verändern.
 Farbe|Integer| Zeigt die Farbe der LED Beleuchtung an und kann diese verändern.
 Helligkeit|Integer| Zeigt die Helligkeit der LED Beleuchtung an und kann diese verändern.
