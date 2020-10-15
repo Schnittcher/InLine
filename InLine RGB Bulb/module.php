@@ -102,12 +102,29 @@ require_once __DIR__ . '/../libs/BufferHelper.php';
                             $color = ltrim($color, '#');
                             $this->SetValue('Color', hexdec($color));
                         }
+
+                        if (property_exists($Payload, 'Dimmer1')) {
+                            $this->SetValue('Brightness', $Payload->Dimmer1);
+                        }
+
+                        if (property_exists($Payload, 'Dimmer2')) {
+                            $this->SetValue('White', $Payload->Dimmer2);
+                        }
+                        if (property_exists($Payload, 'POWER1')) {
+                            $this->SetValue('StateRGB', $Payload->POWER1);
+                        }
+                        if (property_exists($Payload, 'POWER2')) {
+                            $this->SetValue('StateWhite', $Payload->POWER2);
+                        }
                     }
                     if (fnmatch('*RESULT', $Buffer->Topic)) {
                         $this->BufferResponse = $Buffer->Payload;
                         $Payload = json_decode($Buffer->Payload);
-                        if (property_exists($Payload, 'POWER')) {
-                            $this->SetValue('State', $this->mappingOnOffValue($Payload->POWER));
+                        if (property_exists($Payload, 'POWER1')) {
+                            $this->SetValue('StateRGB', $this->mappingOnOffValue($Payload->POWER1));
+                        }
+                        if (property_exists($Payload, 'POWER2')) {
+                            $this->SetValue('StateWhite', $this->mappingOnOffValue($Payload->POWER2));
                         }
                         if (property_exists($Payload, 'Speed')) {
                             $this->SetValue('Speed', $Payload->Speed);
@@ -115,8 +132,8 @@ require_once __DIR__ . '/../libs/BufferHelper.php';
                         if (property_exists($Payload, 'Scheme')) {
                             $this->SetValue('Effect', $Payload->Scheme);
                         }
-                        if (property_exists($Payload, 'Dimmer')) {
-                            $this->SetValue('Brightness', $Payload->Dimmer);
+                        if (property_exists($Payload, 'Dimmer1')) {
+                            $this->SetValue('Brightness', $Payload->Dimmer1);
                         }
                         if (property_exists($Payload, 'Color')) {
                             $rgb = explode(',', $Payload->Color);
