@@ -88,12 +88,6 @@ require_once __DIR__ . '/../libs/BufferHelper.php';
                             SetValue($this->GetIDForIdent('DeviceStatus'), false);
                         }
                     }
-                    if (fnmatch('*POWER1', $Buffer->Topic)) {
-                        $this->SetValue('StateRGB', $this->mappingOnOffValue($Buffer->Payload));
-                    }
-                    if (fnmatch('*POWER2', $Buffer->Topic)) {
-                        $this->SetValue('StateWhite', $this->mappingOnOffValue($Buffer->Payload));
-                    }
                     if (fnmatch('*STATE', $Buffer->Topic)) {
                         $Payload = json_decode($Buffer->Payload);
                         if (property_exists($Payload, 'Color')) {
@@ -102,7 +96,6 @@ require_once __DIR__ . '/../libs/BufferHelper.php';
                             $color = ltrim($color, '#');
                             $this->SetValue('Color', hexdec($color));
                         }
-
                         if (property_exists($Payload, 'Dimmer1')) {
                             $this->SetValue('Brightness', $Payload->Dimmer1);
                         }

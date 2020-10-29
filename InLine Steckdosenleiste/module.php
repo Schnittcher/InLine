@@ -92,6 +92,22 @@ class InLineSteckdosenleiste extends IPSModule
                     $this->SetValue('State4', $this->mappingOnOffValue($Payload->POWER4));
                 }
             }
+
+            if (fnmatch('*STATE', $Buffer->Topic)) {
+                $Payload = json_decode($Buffer->Payload);
+                if (property_exists($Payload, 'POWER1')) {
+                    $this->SetValue('State1', $this->mappingOnOffValue($Payload->POWER1));
+                }
+                if (property_exists($Payload, 'POWER2')) {
+                    $this->SetValue('State2', $this->mappingOnOffValue($Payload->POWER2));
+                }
+                if (property_exists($Payload, 'POWER3')) {
+                    $this->SetValue('State3', $this->mappingOnOffValue($Payload->POWER3));
+                }
+                if (property_exists($Payload, 'POWER4')) {
+                    $this->SetValue('State4', $this->mappingOnOffValue($Payload->POWER4));
+                }
+            }
         }
     }
 

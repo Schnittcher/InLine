@@ -95,6 +95,15 @@ require_once __DIR__ . '/../libs/BufferHelper.php';
                             $this->SetValue('Brightness', $Payload->Dimmer);
                         }
                     }
+                    if (fnmatch('*STATE', $Buffer->Topic)) {
+                        $Payload = json_decode($Buffer->Payload);
+                        if (property_exists($Payload, 'POWER')) {
+                            $this->SetValue('State', $this->mappingOnOffValue($Payload->POWER));
+                        }
+                        if (property_exists($Payload, 'Dimmer')) {
+                            $this->SetValue('Brightness', $Payload->Dimmer);
+                        }
+                    }
                 }
             }
 
