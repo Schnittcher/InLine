@@ -132,13 +132,13 @@ require_once __DIR__ . '/../libs/BufferHelper.php';
                         $this->SetValue('LEDColor', hexdec($color));
                     }
                     if (property_exists($Payload, 'POWER')) {
-                        $this->SetValue('State', $this->mappingOnOffValue($Buffer->Payload));
+                        $this->SetValue('State', $this->mappingOnOffValue($Payload->POWER));
                     }
                     if (property_exists($Payload, 'POWER1')) {
-                        $this->SetValue('State', $this->mappingOnOffValue($Buffer->Payload));
+                        $this->SetValue('State', $this->mappingOnOffValue($Payload->POWER1));
                     }
                     if (property_exists($Payload, 'POWER2')) {
-                        $this->SetValue('LEDState', $this->mappingOnOffValue($Buffer->Payload));
+                        $this->SetValue('LEDState', $this->mappingOnOffValue($Payload->POWER2));
                     }
                 }
                 if (fnmatch('*SENSOR*', $Buffer->Topic)) {
