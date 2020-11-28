@@ -39,6 +39,7 @@ class InLineSteckdosenleiste extends IPSModule
         $this->RegisterVariableBoolean('State2', $this->Translate('State 2'), '~Switch', 0);
         $this->RegisterVariableBoolean('State3', $this->Translate('State 3'), '~Switch', 0);
         $this->RegisterVariableBoolean('State4', $this->Translate('State 4 (USB)'), '~Switch', 0);
+        $this->RegisterVariableBoolean('DeviceStatus', $this->Translate('Device State'), 'InLine.DeviceStatus', 8);
         $this->EnableAction('State1');
         $this->EnableAction('State2');
         $this->EnableAction('State3');
