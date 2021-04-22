@@ -85,8 +85,10 @@ require_once __DIR__ . '/../libs/BufferHelper.php';
                     $this->BufferResponse = $Buffer->Payload;
                 }
                 if (fnmatch('*level*', $Buffer->Payload)) {
-                    if (property_exists($Payload, 'level')) {
-                        $this->SetValue('Level', $Payload->level);
+                    if (is_object($Payload)) {
+                        if (property_exists($Payload, 'level')) {
+                            $this->SetValue('Level', $Payload->level);
+                        }
                     }
                 }
                 if (fnmatch('*water*', $Buffer->Payload)) {
