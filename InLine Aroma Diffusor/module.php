@@ -3,7 +3,7 @@
 declare(strict_types=1);
 require_once __DIR__ . '/../libs/vendor/SymconModulHelper/VariableProfileHelper.php';
 require_once __DIR__ . '/../libs/MQTTHelper.php';
-require_once __DIR__ . '/../libs/vendor/SymconModulHelper/BufferHelper.php';;
+require_once __DIR__ . '/../libs/vendor/SymconModulHelper/BufferHelper.php';
 
     class InLineAromaDiffusor extends IPSModule
     {
