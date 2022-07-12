@@ -191,6 +191,7 @@ require_once __DIR__ . '/../libs/vendor/SymconModulHelper/BufferHelper.php';
                         $this->SendDebug('Receive Result: Color', $Payload->Color, 0);
                         $rgb = explode(',', $Payload->Color);
                         $color = sprintf('#%02x%02x%02x', $rgb[0], $rgb[1], $rgb[2]);
+                        $color = ltrim($color, '#');
                         $this->SetValue('LEDColor', hexdec($color));
                     }
                     if (property_exists($Payload, 'Fade')) {
